@@ -22,7 +22,7 @@ export function UserProvider({ children }: IChildren) {
   const USER_KEY = "USER_BEEREPORT_KEY";
   const [user, setUser] = useState<IUser | null>(
     localStorage.getItem(USER_KEY)
-      ? JSON.parse(localStorage.getItem(USER_KEY) || "")
+      ? JSON.parse(localStorage.getItem(USER_KEY) as string)
       : null
   );
 
@@ -56,6 +56,11 @@ export function UserProvider({ children }: IChildren) {
   useEffect(() => {
     setUserData().then((userData) => {
       setUser(userData);
+      localStorage.setItem(USER_KEY, JSON.stringify({
+        name: userData.name,
+        email: userData.email,
+        nis: userData.nis
+      }))
     });
   }, [loginTrigger]);
 

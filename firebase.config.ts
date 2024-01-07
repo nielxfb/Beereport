@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "beereport-9666b.appspot.com",
   messagingSenderId: "587303788007",
   appId: "1:587303788007:web:8b7117a90a78cb1391b142",
-  measurementId: "G-4HY0SSG6B0"
+  measurementId: "G-4HY0SSG6B0",
 };
 
 // Initialize Firebase
