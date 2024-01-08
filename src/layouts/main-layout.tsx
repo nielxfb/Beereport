@@ -10,6 +10,7 @@ function MainLayout({ children }: IChildren) {
   const navigate = useNavigate();
   const location = useLocation();
   const isLoginPage = location.pathname === "/";
+  const isRoadmap = location.pathname === "/roadmap";
 
   useEffect(() => {
     if (!user) {
@@ -18,12 +19,14 @@ function MainLayout({ children }: IChildren) {
   }, [user]);
 
   return (
-    <div className='w-screen h-screen overflow-hidden flex'>
-      <img
-        src={isLoginPage ? LoginBackground : Background}
-        alt='login-background'
-        className='bg-[#f2f0ff]'
-      />
+    <div className="w-screen h-screen overflow-hidden">
+      {!isRoadmap && (
+        <img
+          src={isLoginPage ? LoginBackground : Background}
+          alt="login-background"
+          className="bg-[#f2f0ff]"
+        />
+      )}
       {children}
     </div>
   );

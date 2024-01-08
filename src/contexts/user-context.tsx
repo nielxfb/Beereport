@@ -19,12 +19,7 @@ interface IUserContext {
 }
 
 export function UserProvider({ children }: IChildren) {
-  const USER_KEY = "USER_BEEREPORT_KEY";
-  const [user, setUser] = useState<IUser | null>(
-    localStorage.getItem(USER_KEY)
-      ? JSON.parse(localStorage.getItem(USER_KEY) as string)
-      : null
-  );
+  const [user, setUser] = useState<IUser | null>(null);
 
   const [email, setEmail] = useState<string>('');
   const [loginTrigger, setLoginTrigger] = useState<number>(0);
@@ -50,17 +45,11 @@ export function UserProvider({ children }: IChildren) {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem(USER_KEY);
   };
 
   useEffect(() => {
     setUserData().then((userData) => {
       setUser(userData);
-      localStorage.setItem(USER_KEY, JSON.stringify({
-        name: userData.name,
-        email: userData.email,
-        nis: userData.nis
-      }))
     });
   }, [loginTrigger]);
 
@@ -84,6 +73,7 @@ export function UserProvider({ children }: IChildren) {
   return <context.Provider value={data}>{children}</context.Provider>;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default function useUser() {
   return useContext(context);
 }

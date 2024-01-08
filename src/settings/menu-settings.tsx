@@ -2,6 +2,7 @@ import AddScorePage from "../pages/add-score-page";
 import HomePage from "../pages/home-page";
 import LoginPage from "../pages/login-page";
 import RegisterPage from "../pages/register-page";
+import ResultsPage from "../pages/results-page";
 import RoadmapPage from "../pages/roadmap-page";
 import UpdateScorePage from "../pages/update-score-page";
 
@@ -41,5 +42,10 @@ export const MENU_LIST: IMenu[] = [
     element: <RoadmapPage />,
     name: "Roadmap",
     path: "/roadmap",
+  },
+  {
+    element: <ResultsPage />,
+    name: "Results",
+    path: "/results",
   },
 ];
