@@ -15,7 +15,7 @@ function UpdateScorePage() {
   }
 
   return (
-    <div className='m-4 absolute left-1/2 -translate-x-1/2'>
+    <div className='m-4 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2'>
       <div className='border-gray-700 rounded-2xl flex flex-col justify-center items-center gap-4 bg-[#f2f0ff] px-8 py-10 border-[0.5px] shadow-md bg-opacity-25 w-96'>
         <h1 className='text-xl font-bold'>Update Score</h1>
         <form
